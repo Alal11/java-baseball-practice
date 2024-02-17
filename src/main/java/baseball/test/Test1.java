@@ -9,13 +9,22 @@ public class Test1 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("숫자 야구 게임을 시작합니다.");
 
-        int ranNum = 237;
-        int[] ranArr = new int[3];
-        for (int i = 0; i < 3; i++) {
-            ranArr[i] = ranNum % 10;
-            ranNum /= 10;
-            System.out.println(ranArr[i]);
+        int ran1, ran2, ran3;
+
+
+        while(true){
+            ran1 = (int) (Math.random() * 9);
+            ran2 = (int) (Math.random() * 9);
+            ran3 = (int) (Math.random() * 9);
+
+            if(!(ran1==ran2 || ran2==ran3 || ran3==ran1)){
+                break;
+            }
         }
+
+        System.out.println(ran1);
+        System.out.println(ran2);
+        System.out.println(ran3);
 
         int[] scArr = new int[3];
         System.out.print("숫자를 입력해주세요 : ");
@@ -26,6 +35,7 @@ public class Test1 {
             scNum /= 10;
             System.out.println(scArr[i]);
         }
+
 
 
     }
