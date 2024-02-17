@@ -7,6 +7,9 @@ import java.io.InputStreamReader;
 public class Test1 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        final int SIZE = 3;
+
         System.out.println("숫자 야구 게임을 시작합니다.");
 
         int ran1, ran2, ran3;
@@ -26,15 +29,20 @@ public class Test1 {
         System.out.println(ran2);
         System.out.println(ran3);
 
-        int[] scArr = new int[3];
+        int[] scArr = new int[SIZE];
         System.out.print("숫자를 입력해주세요 : ");
         int scNum = Integer.parseInt(br.readLine());
 
-        for (int i = 0; i < 3; i++) {
-            scArr[i] = scNum % 10;
+        for (int i = 0; i < SIZE; i++) {
+            scArr[SIZE-i-1] = scNum % 10;
             scNum /= 10;
-            System.out.println(scArr[i]);
         }
+
+        for (int i : scArr) {
+            System.out.println(i);
+        }
+
+
 
 
 
