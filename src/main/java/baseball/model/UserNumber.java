@@ -1,5 +1,7 @@
 package baseball.model;
 
+import baseball.view.GamePrint;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,20 +11,24 @@ public class UserNumber {
     public int inputNumber() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        try{
-            System.out.print("숫자를 입력해주세요 : ");
+        try {
+            GamePrint.printInputNumber();
             int scNum = Integer.parseInt(br.readLine());
             return scNum;
-        }catch (IllegalArgumentException e){
-            System.out.println("잘못된 입력값 입니다.");
+        } catch (IllegalArgumentException e) {
+            GamePrint.printInputError();
             return 0;
         }
     }
 
 
+    public int[] inputList(int size, int scNum) {
+        int[] scArr = new int[size];
 
-
-
-
-
+        for (int i = 0; i < size; i++) {
+            scArr[size - i - 1] = scNum % 10;
+            scNum /= 10;
+        }
+        return scArr;
+    }
 }
